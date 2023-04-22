@@ -14,23 +14,29 @@
   <div class="container">
     <div class="calculator-card">
       <div class="col__calculator">
-        <h3>Bill</h3>
+        <div class="headline">
+          <h3>Bill</h3>
+          <p class="empty-alert bill-alert">Can’t be zero</p>
+        </div>
         <div class="input-box">
-          <input type="text">
+          <input type="number" id="bill">
           <img src="icons/$.svg" alt="">
         </div>
         <h3>Select Tip %</h3>
         <div class="percents">
-          <button>5%</button>
-          <button>10%</button>
-          <button>15%</button>
-          <button>25%</button>
-          <button>50%</button>
-          <input placeholder="Custom" class="custom">Custom</input>
+          <button class="calc-btn">5</button>
+          <button class="calc-btn">10</button>
+          <button class="calc-btn">15</button>
+          <button class="calc-btn">25</button>
+          <button class="calc-btn">50</button>
+          <input placeholder="Custom" class="calc-btn custom"></input>
         </div>
-        <h3>Number of People</h3>
+        <div class="headline">
+          <h3>Number of People</h3>
+          <p class="empty-alert num-people-alert">Can’t be zero</p>
+        </div>
         <div class="input-box">
-          <input type="text">
+          <input type="number" id="num-people">
           <img src="icons/user.svg" alt="">
         </div>
       </div>
@@ -42,7 +48,7 @@
               <p>/ person</p>
             </div>
             <div class="result__number">
-              <p>$0.00</p>
+              <p>$<span id="amount">0.00</span></p>
             </div>
           </div>
           <div class="col">
@@ -51,12 +57,13 @@
               <p>/ person</p>
             </div>
             <div class="result__number">
-              <p>$0.00</p>
+              <p>$<span id="total">0.00</span></p>
             </div>
           </div>
         </div>
-        <button>Reset</button>
+        <button id="reset">Reset</button>
       </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
