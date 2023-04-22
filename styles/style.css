@@ -27,6 +27,9 @@ body {
 .calc-btn {
   border-color: rgb(0, 71, 75);
 }
+.calc-btn::after {
+  content: "%";
+}
 .calc-btn:hover {
   background: rgb(38, 194, 174) !important;
   border-color: rgb(38, 194, 174) !important;
@@ -223,7 +226,7 @@ input:focus {
   }
   .col__calculator .percents button, .col__calculator .percents .active, .col__calculator .percents .custom {
     width: 117px;
-    padding: 6px 14px;
+    padding: 6px 12px;
   }
   .col__calculator-result {
     display: flex;

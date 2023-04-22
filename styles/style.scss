@@ -24,6 +24,9 @@ body {
 .calc-btn {
   border-color: rgb(0, 71, 75);
 
+  &::after {
+    content: '%';
+  }
   &:hover {
     background: rgba(38, 194, 174, 1) !important;
     border-color: rgba(38, 194, 174, 1) !important;
@@ -147,7 +150,7 @@ input {
         margin-bottom: 16px;
         border: 2px solid transparent;
         cursor: pointer;
-
+        
         &:hover {
           border-color: rgb(38, 194, 174);
         }
@@ -227,7 +230,7 @@ input {
       margin-bottom: 24px;
       button, .active, .custom {
         width: 117px;
-        padding: 6px 14px;
+        padding: 6px 12px;
       }
     }
   }
