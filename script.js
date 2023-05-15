@@ -1,4 +1,5 @@
 const btns = document.querySelectorAll('.calc-btn')
+
 const billInput = document.querySelector('#bill')
 const numberOfPeople = document.querySelector('#num-people')
 const customInput = document.querySelector('.custom')
@@ -28,9 +29,6 @@ btns.forEach(btn => {
       tipsTotal.textContent = '0.00'
     }
     else {
-      Number(btns)
-      Number(billInput)
-      Number(customInput)
       btn.classList.add('active-btn')
       billInput.classList.remove('empty-input')
       numberOfPeople.classList.remove('empty-input')
@@ -44,6 +42,39 @@ btns.forEach(btn => {
       tipAmount.textContent = calcAmountPercents
     }
   })
+})
+
+customInput.addEventListener('input', () => {
+  document.querySelector('.active-btn')?.classList.remove('active-btn')
+
+  const customValue = customInput.value
+    
+    if(billInput.value === '') {
+      billInput.classList.add('empty-input')
+      document.querySelector('.bill-alert').style.display = 'block'
+      tipAmount.textContent = '0.00'
+      tipsTotal.textContent = '0.00'
+    }
+    else if(numberOfPeople.value === '') {
+      billInput.classList.remove('empty-input')
+      document.querySelector('.bill-alert').style.display = 'none'
+      numberOfPeople.classList.add('empty-input')
+      document.querySelector('.num-people-alert').style.display = 'block'
+      tipAmount.textContent = '0.00'
+      tipsTotal.textContent = '0.00'
+    }
+    else {
+      billInput.classList.remove('empty-input')
+      numberOfPeople.classList.remove('empty-input')
+      document.querySelector('.bill-alert').style.display = 'none'
+      document.querySelector('.num-people-alert').style.display = 'none'
+
+      const totalPercents = ((billInput.value * customValue || billInput.value * customValue) / 100).toFixed(2)
+      tipsTotal.textContent = totalPercents
+      
+      const calcAmountPercents = (totalPercents / numberOfPeople.value).toFixed(2)
+      tipAmount.textContent = calcAmountPercents
+    }
 })
 
 reset.addEventListener('click', () => {
